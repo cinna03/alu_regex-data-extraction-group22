@@ -34,9 +34,9 @@ def extract_data(data_type, text):
         logging.warning(f"Unknown data type: {data_type}")
         raise ValueError(f"Data type '{data_type}' not recognized.")
     
-<<<<<<< HEAD
     logging.info(f"Extracting {data_type} data...")
     # Return all matches
+    return re.findall(pattern, text)
 
 def process_text(text):
     """
