@@ -2,7 +2,7 @@ Regular Expressions Repository
 
 This repository contains implementations of regular expressions to match specific patterns for email addresses, URLs, phone numbers,credit card numbers, time, HTML tags, hastags, and currency amounts.
 
-The regular expressions are implemented in both Python
+The regular expressions are implemented in Python
 
 This API collects data from various web sources and presents the relevant information based on user input.
 A. How to run the APP:
