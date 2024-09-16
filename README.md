@@ -1,7 +1,6 @@
 This API collects data from various web sources and presents the relevant information based on user input.
 A. How to run the APP:
-
-The app can be run from the command line, either with a direct text input or a file input.
+You can execute the app from the command line, using either direct text input or a file as input.
 
 - option 1: python extraction.py "Contact: user@example.com, URL: https://example.com, Phone: (123) 456-7890"
 - option 2: python extraction.py path/to/large_text_file.txt --from-file
