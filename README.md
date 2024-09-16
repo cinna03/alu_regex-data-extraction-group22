@@ -18,6 +18,6 @@ Hashtags: []
 Currency Amounts: []
 
 C. Unit testing:
-To ensure the correctness of the extraction logic, unit tests are included. You can run the tests using unittest as follows:
+To verify the functionality of the extraction logic, unit tests have been provided. You can execute these tests with the following command:
 
 python -m unittest test_extraction.py
