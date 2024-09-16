@@ -28,7 +28,7 @@ def extract_data(data_type, text):
     if not pattern:
         raise ValueError(f"Data type '{data_type}' not recognized.")
     
-    # Return all matches
+    # Return all matches found
     return re.findall(pattern, text)
 
 def process_text(text):
