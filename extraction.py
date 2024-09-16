@@ -1,4 +1,9 @@
 import re
+import argparse
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
 
 # Dictionary of Regular Expressions for each data type
 regex_patterns = {
@@ -26,8 +31,10 @@ def extract_data(data_type, text):
     """
     pattern = regex_patterns.get(data_type)
     if not pattern:
+        logging.warning(f"Unknown data type: {data_type}")
         raise ValueError(f"Data type '{data_type}' not recognized.")
     
+    logging.info(f"Extracting {data_type} data...")
     # Return all matches
     return re.findall(pattern, text)
 
@@ -48,15 +55,42 @@ def process_text(text):
     
     return extracted_data
 
-if __name__ == "__main__":
-    # Example text for testing
-    sample_text = """
-    For inquiries, email user@example.com or visit our site at https://www.example.com.
-    You can call us at (123) 456-7890 or 123-456-7890. Our team is available at 2:30 PM or 14:30.
-    Credit cards: 1234 5678 9012 3456 and 1234-5678-9012-3456. Hashtag: #MyNewProject. Price: $19.99.
-    HTML tags like <div class="container"> can be found in the HTML.
+def process_large_text(input_file, chunk_size=1024):
     """
+    Process a large text file in chunks to avoid memory overload.
+    
+    Args:
+        input_file (str): Path to the large input file.
+        chunk_size (int): Size of the chunks to read at a time.
 
-    result = process_text(sample_text)
-    for data_type, matches in result.items():
-        print(f"{data_type.capitalize()}: {matches}")
+    Yields:
+        str: A chunk of text from the file.
+    """
+    with open(input_file, 'r') as file:
+        while chunk := file.read(chunk_size):
+            yield chunk
+
+def main():
+    """
+    Command-Line Interface (CLI) to handle input from the user, either as a text string or from a file.
+    """
+    parser = argparse.ArgumentParser(description="Extract data using regular expressions.")
+    parser.add_argument("input_source", help="Path to input text file or direct text input", type=str)
+    parser.add_argument("--from-file", help="Specify if input is a file", action='store_true')
+    args = parser.parse_args()
+
+    if args.from_file:
+        logging.info(f"Processing large input file: {args.input_source}")
+        for text_chunk in process_large_text(args.input_source):
+            extracted_results = process_text(text_chunk)
+            for data_type, matches in extracted_results.items():
+                print(f"{data_type.capitalize()}: {matches}")
+    else:
+        logging.info("Processing direct text input.")
+        extracted_results = process_text(args.input_source)
+        for data_type, matches in extracted_results.items():
+            print(f"{data_type.capitalize()}: {matches}")
+
+if __name__ == "__main__":
+    main()
+
