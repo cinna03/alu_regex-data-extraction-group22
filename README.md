@@ -1,5 +1,5 @@
 Regular Expressions Repository
-This repository contains implementations of regular expressions to match
+This repository contains implementations of regular expressions to match specific patterns for email addresses, URLs, phone numbers,credit card numbers, time, HTML tags, hastags, and currency amounts.
 
 
 This API collects data from various web sources and presents the relevant information based on user input.
