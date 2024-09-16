@@ -1,5 +1,4 @@
-API that aggregates data from all over the web and displays relevant information based on the user request
-
+This API collects data from various web sources and presents the relevant information based on user input.
 A. How to run the APP:
 
 The app can be run from the command line, either with a direct text input or a file input.
