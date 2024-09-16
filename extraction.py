@@ -37,10 +37,6 @@ def extract_data(data_type, text):
 <<<<<<< HEAD
     logging.info(f"Extracting {data_type} data...")
     # Return all matches
-=======
-    # Return all matches found
->>>>>>> b9a2b305758b5444076be000cca286ca85336aa5
-    return re.findall(pattern, text)
 
 def process_text(text):
     """
