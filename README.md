@@ -1,5 +1,5 @@
 Regular Expressions Repository
-This repository contains implementations of
+This repository contains implementations of regular expressions to match
 
 
 This API collects data from various web sources and presents the relevant information based on user input.
