@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
 # Dictionary of Regular Expressions for each data type
 regex_patterns = {
     "emails": r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b',
-    "urls": r'https?:\/\/(www\.)?[A-Za-z0-9.-]+\.[A-Za-z]{2,}([\/\w.-]*)*',
+    "urls": r'https?:\/\/(?:www\.)?[A-Za-z0-9.-]+\.[A-Za-z]{2,}(?:\/[^\s]*)?',
     "phone_numbers": r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}',
     "credit_cards": r'(?:\d{4}[-\s]?){3}\d{4}',
     "times_24_hour": r'\b([01]?[0-9]|2[0-3]):[0-5][0-9]\b',
