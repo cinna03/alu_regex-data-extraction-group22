@@ -15,7 +15,7 @@ regex_patterns = {
     "times_12_hour": r'\b([1-9]|1[0-2]):[0-5][0-9]\s?[APMapm]{2}\b',
     "html_tags": r'<[^>]+>',
     "hashtags": r'#\w+',
-    "currency_amounts": r'\$\d{1,3}(,\d{3})*(\.\d{2})?',
+    "currency_amounts": r'\$\d{1,3}(?:,\d{3})*(?:\.\d{2})?',
 }
 
 def extract_data(data_type, text):
@@ -35,7 +35,6 @@ def extract_data(data_type, text):
         raise ValueError(f"Data type '{data_type}' not recognized.")
     
     logging.info(f"Extracting {data_type} data...")
-    # Return all matches
     return re.findall(pattern, text)
 
 def process_text(text):
@@ -50,7 +49,7 @@ def process_text(text):
     """
     extracted_data = {}
     
-    for data_type, pattern in regex_patterns.items():
+    for data_type in regex_patterns:
         extracted_data[data_type] = extract_data(data_type, text)
     
     return extracted_data
@@ -93,4 +92,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
