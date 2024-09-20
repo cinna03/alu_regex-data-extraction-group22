@@ -7,15 +7,15 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
 
 # Dictionary of Regular Expressions for each data type
 regex_patterns = {
-    "emails": r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b',
-    "urls": r'https?:\/\/(?:www\.)?[A-Za-z0-9.-]+\.[A-Za-z]{2,}(?:\/[^\s]*)?',
-    "phone_numbers": r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}',
-    "credit_cards": r'(?:\d{4}[-\s]?){3}\d{4}',
-    "times_24_hour": r'\b([01]?[0-9]|2[0-3]):[0-5][0-9]\b',
-    "times_12_hour": r'\b([1-9]|1[0-2]):[0-5][0-9]\s?[APMapm]{2}\b',
-    "html_tags": r'<[^>]+>',
-    "hashtags": r'#\w+',
-    "currency_amounts": r'\$\d{1,3}(?:,\d{3})*(?:\.\d{2})?',
+    "emails": r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b',  # Pattern to match email addresses
+    "urls": r'https?:\/\/(?:www\.)?[A-Za-z0-9.-]+\.[A-Za-z]{2,}(?:\/[^\s]*)?',  # Pattern to match URLs
+    "phone_numbers": r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}',  # Pattern to match phone numbers
+    "credit_cards": r'(?:\d{4}[-\s]?){3}\d{4}',  # Pattern to match credit card numbers
+    "times_24_hour": r'\b([01]?[0-9]|2[0-3]):[0-5][0-9]\b',  # Pattern to match 24-hour time format
+    "times_12_hour": r'\b([1-9]|1[0-2]):[0-5][0-9]\s?[APMapm]{2}\b',  # Pattern to match 12-hour time format
+    "html_tags": r'<[^>]+>',  # Pattern to match HTML tags
+    "hashtags": r'#\w+',  # Pattern to match hashtags
+    "currency_amounts": r'\$\d{1,3}(?:,\d{3})*(?:\.\d{2})?',  # Pattern to match currency amounts
 }
 
 def extract_data(data_type, text):
