@@ -6,7 +6,7 @@ class TestRegexExtraction(unittest.TestCase):
     Test class for regular expression extraction functions.
     """
 
-    def test_extract_emails():
+    def test_extract_emails(self):
         """
         Test extracting email addresses from a text.
         """
