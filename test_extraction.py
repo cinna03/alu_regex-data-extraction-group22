@@ -14,7 +14,7 @@ class TestRegexExtraction(unittest.TestCase):
         text = "Contact us at user@example.com or firstname.lastname@company.co.uk."
         # Expected email addresses
         expected_emails = ['user@example.com', 'firstname.lastname@company.co.uk']
-        # Assert that the extracted emails  the expected ones
+        # Assert that the extracted emails match the expected ones
         self.assertEqual(extract_data("emails", text), expected_emails)
 
     def test_extract_urls(self):
